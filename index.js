@@ -114,7 +114,7 @@ app.get('/user/:user_id', async (req, res) => {
 
     try {
         const user_id = req.params.user_id;
-        const response = await aggregate.lookup({ from: 'users', localField: 'user_id', foreignField: '_id', as: 'users' });
+        const response = await aggregate.lookup({ from: 'roles', localField: 'role_id', foreignField: 'role_id', as: 'users' });
 
         res.send({ message: 'data updated successfully', data: response });
 
